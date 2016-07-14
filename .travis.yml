@@ -7,7 +7,7 @@ script:
   - npm run build
   - npm run build
 before_deploy:
-  - gulp production
+    - gulp production
 deploy:
   provider: heroku
   api_key:
