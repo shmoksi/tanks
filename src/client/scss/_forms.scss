@@ -1,0 +1,125 @@
+/*====Login & Register Form====*/
+
+$formBgColor: #222222;
+$formHeaderColor: #9d9d9d;
+$formValidBorColor: #509D12;
+$formInvalidBorColor: #da3637;
+$formErrorMesColor: #ff0000;
+
+
+.form {
+  background: $formBgColor;
+  padding: 40px;
+  margin: 3px auto;
+  width:592px;
+}
+
+.regis-form {
+  @extend .form;
+  border:2px solid white;
+  border-radius: 7px;
+  margin-top: 20px;
+}
+
+.form-header {
+  text-align:center;
+  color: $formHeaderColor;
+  margin:0 0 30px;
+}
+
+.form-group label {
+  font-family: 'Arial', sans-serif;
+  font-weight:200;
+  color: $formHeaderColor;
+}
+
+input.ng-invalid.ng-touched {
+	border: 2px solid $formInvalidBorColor;
+}
+
+input.ng-valid.ng-touched {
+	border: 2px solid $formValidBorColor;
+}
+
+.form-error-message {
+	color: $formErrorMesColor;
+}
+
+.form-submitB-margin {
+  margin-top:35px;
+
+}
+
+/*====Profile Form====*/
+.profile-form {
+  margin-top: 10px;
+  background: $formBgColor;
+  border:2px solid white;
+  border-radius: 7px;
+  color:$formHeaderColor;
+
+}
+
+#albumImage {
+    width: 620px;
+    height: 200px;
+    margin-bottom: 10px;
+
+}
+
+#albumImage img {
+    border:1px solid red;
+    border-radius:30%;
+    display: block;
+    margin: auto;
+    width: 200px;
+    height:200px;
+}
+#uploadImg {
+  border:1px solid red;
+  border-radius:30%;
+  display: block;
+  margin: auto;
+  width: 200px;
+  height:200px;
+}
+
+#thumbWrapper {
+  margin:0 auto;
+    width: 400px;
+  overflow: auto;
+
+}
+#thumbList {
+    white-space: nowrap;
+    margin: 0px;
+}
+#thumbList li {
+    display: inline;
+    list-style-type: none;
+    padding-left: 2px;
+    padding-right: 2px;
+    cursor: pointer;
+}
+
+#thumbList li:hover {
+    opacity: 0.5;
+}
+.img_bottom {
+    width: 100px;
+    height:100px;
+}
+.avatarImg  {
+  display:inline-block;
+  border-radius:30%;
+  background-color: green;
+  width: 125px;
+  height:125px;
+  float: right;
+  margin-right: 27px;
+  margin-top: 25px;
+}
+.avatarButton {
+  margin-top: 10px;
+  margin-right:27px;
+}

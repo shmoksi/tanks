@@ -1,0 +1,23 @@
+<div class="dashboard">
+    <div class="page-header">
+      <h1>Users</h1>
+    </div>
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <th>Status</th>
+            <th>Name</th>
+            <th>Invite</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | orderBy: '-isOnline'">
+                <td class="status">
+                    <span class="{{user.isOnline}}"  ng-show="user.isOnline === true">Online</span>
+                    <span class="{{user.isOnline}}" ng-show="user.isOnline === false">Offline</span>
+                </td>
+                <td>{{user.userName}}</td>
+                <td><button ng-show="user.isOnline === true" type="button" class="btn btn-primary" ng-click="sendInvite(user._id)">Invite</button>
+                <button ng-show="user.isOnline === false" type="button" class="btn btn-primary disabled" disabled>Invite</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

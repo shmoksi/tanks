@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="row">
+        <div class="profile-form col-md-8 col-md-offset-2">
+
+            <h2 class="text-center">Profile page!</h2>
+
+
+            <form class="form-horizontal col-md-6 col-md-offset-3" name="profile">
+
+                <div class="form-group">
+                    <label for="inputEmail3" class="control-label">User name:</label>
+                    <div>
+                        <input type="text" ng-pattern="/^[a-zA-Z0-9]*$/" class="form-control" id="inputEmail3"
+                               placeholder="User name"
+                               ng-model="user.userName" ng-minlength={{nameMinLength}} ng-maxlength={{nameMaxLength}}
+                               name="username">
+                    </div>
+                    <span class="form-error-message" ng-show="profile.username.$error.pattern">Username should only contain letters and numbers</span>
+                    <span class="form-error-message" ng-show="profile.username.$error.minlength">Username should be at least {{nameMinLength}} characters long</span>
+                    <span class="form-error-message"
+                          ng-show="profile.username.$error.maxlength">
+                 Username cannot be longer than {{nameMaxLength}} characters</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputEmail31" class="control-label">Age:</label>
+                    <div>
+                        <input type="number" class="form-control" id="inputEmail31" placeholder="Age"
+                               ng-model="user.userAge"
+                               max="100" min="18" name="age">
+                    </div>
+                    <span ng-show='profile.age.$error.min'>You should be at least 18 years old</span>
+                    <span ng-show='profile.age.$error.max'>You cannot be older than 100 years old</span>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail33" class="control-label">E-mail address</label>
+                    <div>
+                        <input type="text" class="form-control" id="inputEmail33" placeholder="E-mail address"
+                               ng-readonly="emailStatus" value="{{user.userEmail}}">
+
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="control-label">For change password type your old
+                        password:</label>
+                    <div data-ng-class="{'has-error':!profile.password.$valid}">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Old password"
+                               ng-model="user.oldPassword" ng-maxlength={{passMaxLength}} ng-minlength={{passMinLength}}
+                               name="password">
+                    </div>
+                    <span class="form-error-message" ng-show="profile.password.$error.minlength">Password should be at least {{passMinLength}} characters long</span>
+                    <span class="form-error-message" ng-show="profile.password.$error.maxlength">Password cannot be longer than {{passMaxLength}} characters</span>
+                </div>
+                <div class="form-group" ng-show="user.oldPassword"
+                     data-ng-class="{'has-error':!profile.newpassword.$valid}">
+                    <label for="inputPassword31" class="control-label">New password:</label>
+                    <div>
+                        <input type="password" name="newpassword" class="form-control" id="inputPassword31"
+                               data-ng-match="Password" placeholder="New password"
+                               ng-model="user.newPassword" ng-minlength={{passMinLength}}
+                               ng-maxlength={{passMaxLength}}>
+
+                    </div>
+                    <span class="form-error-message " ng-show="profile.newpassword.$error.minlength">Password should be at least {{passMinLength}} characters long</span>
+                    <span class="form-error-message" ng-show="profile.newpassword.$error.maxlength">Password cannot be longer than {{passMaxLength}} characters</span>
+                </div>
+                <div class="form-group" ng-show="user.oldPassword"
+                     data-ng-class="{'has-error':!profile.confpassword.$valid}">
+                    <label for="inputPassword32" class="control-label">Confirm new password:</label>
+                    <div>
+                        <input type="password" name="confpassword" class="form-control" id="inputPassword32"
+                               placeholder="Confirm new password"
+                               ng-model="user.confirmNewPassword" ng-minlength={{passMinLength}}
+                               ng-maxlength={{passMaxLength}} data-ng-match="newpassword">
+                    </div>
+                    <span class="form-error-message" ng-show="profile.confpassword.$error.minlength">Password should be at least {{passMinLength}} characters long</span>
+                    <span class="form-error-message" ng-show="profile.confpassword.$error.maxlength">Password cannot be longer than {{passMaxLength}} characters</span>
+                    <span class="help-block"
+                          data-ng-show="profile.confpassword.$error.match">Passwords do not match</span>
+                </div>
+
+                <div class="form-group">
+                    <div>
+
+                        <button type="submit" class="btn btn-success col-md-5" ng-click="saveChanges(user)"
+                                ng-disabled="">Save
+                            changes
+                        </button>
+                        <button type="button" class="btn btn-danger col-md-5 col-md-offset-2" ng-click="deleteUser()">
+                            Delete
+                            account
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+            </form>
+            <div id="avatarBlock">
+                <img ng-src="{{selectedImg}}" class="avatarImg" ng-model="user.userImg">
+            </div>
+            <button type="button" class="btn btn-primary pull-right avatarButton" ng-click="changeAvatar()">Change photo
+            </button>
+
+        </div>
+    </div>
+</div>
+

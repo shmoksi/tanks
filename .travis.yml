@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '5'
+install:
+- npm install
+script:
+  - npm run build
+  - npm run build
+before_deploy:
+  - gulp production
+deploy:
+  provider: heroku
+  api_key:
+    secure: M0u6Z1JZ2x5srfLzh1unhzfvMeDLwJ0WoJjTH0481xHyqHDgbnkcr/wcU6vkPzxHpeyLUBWMfrC4MDfbW8QXIbBQB1o8jdYzLt7CKekFaCPZfyt6fzwkYOCnHBCWvVpSQWQ5KF+Iu8v5QkUn59YdP92hNeWpj5CvDghC7/AMrLMThQhS6Wb4m3d48j6vtWOLOGpZzkUInifAy/wYcGyTpOP1zPbplLsLUNWVXhRemmLmwuybGq9plU7XbMnwv5rvTUfWsqSHxc2TUbddenQerNVSR3NEbEwwq5exWkEF28qOHlg4uRpkKudRlY1qZkYLA1GqbsyndJ1qqaLTp10XTXoph/4p3HLgGOECTPNexTj91H4KrpDyWd41DYpo6KSizUXljmUskeKH+Ic4fgrsAubtNLpUyFk8FmqZFMCO5ixcv7AaEd6NFp4DpP4+sZebj6GcxBdIs+DAu0IT1BAsXiQ5JdJI4Hs0fERmJgGcJoCAFoeQoqnenUXAWfTuukX4m0c/38BjJ67czoT7gUsiWt4sy4a1Wv4jDmv0AjLwtsgnJSmHoK9SrtsUEOIQAg8wOUi7n2G0iETSt5n9zL2A1TXM4XsHCvGI8Pidnh9njXpyR0dLyRH+EwIw3X/P3ZzvU4aGgiD9WAW0y8j7wRVQk+oLGYKbGwJ2Ef327F/uZlE=
+  app: tanks-academy
+  on: master
+  skip_cleanup: true

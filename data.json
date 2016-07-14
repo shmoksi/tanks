@@ -1,0 +1,18 @@
+{
+    userName: 'taras_242',
+    userEmail: 'taras@gmail.com',
+    userPassword: '2222',
+    isOnline: true
+}
+{
+    userName: 'ivan_22',
+    userEmail: 'ivan@gmail.com',
+    userPassword: '1111',
+    isOnline: false
+}
+{
+    userName: 'oles_22',
+    userEmail: 'oles@gmail.com',
+    userPassword: '3333',
+    isOnline: true
+}

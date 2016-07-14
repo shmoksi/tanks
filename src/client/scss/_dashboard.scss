@@ -1,0 +1,30 @@
+.dashboard {
+    width: 80%;
+    color: white;
+    margin: 0 auto;
+    max-width: 1240px;
+    .status span{
+        padding-left: 20px;
+        position: relative;
+        &:before{
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 10px;
+            content: "";
+            height: 10px;
+            margin: auto;
+            background: #d3d4da;
+            position: absolute;
+            @include border-radius(50%);
+        }
+        &.true{
+            &:before{
+                background: #6ed46e;
+            }
+        }
+    }
+    .table-striped>tbody>tr:nth-of-type(odd) {
+        background: transparent;
+    }
+}

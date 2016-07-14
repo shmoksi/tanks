@@ -1,0 +1,20 @@
+<div class="container-fullwidth" ng-controller="NavigationCtrl">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" ng-click="showMobileNav = !showMobileNav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand active" href="/">
+                    <img src="public/images/logo.jpeg"/>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" ng-class="{in: showMobileNav}">
+                <nav-log ng-if="logged"></nav-log>
+                <nav-no-log ng-if="!logged"></nav-no-log>
+            </div>
+        </div>
+    </nav>
+</div>

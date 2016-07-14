@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url("fonts/glyphicons-halflings-regular.eot?") format("eot");
+    src: url("fonts/glyphicons-halflings-regular.woff2") format("woff2"),
+         url("fonts/glyphicons-halflings-regular.woff") format("woff"),
+         url("fonts/glyphicons-halflings-regular.ttf") format("truetype"),
+         url("fonts/glyphicons-halflings-regular.svg#glyphicons-halflings-regular") format("svg");
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+    @include border-radius(10px);
+
+    a {
+        outline: none !important;
+    }
+
+    .navbar.navbar-inverse {
+        margin: 0 0;
+        border-bottom: 1px solid $navbar-bottom;
+    }
+
+    .navbar-brand {
+        padding: 0;
+
+        > img {
+            height: 100%;
+            padding: 0;
+            width: auto;
+        }
+
+        &.active {
+            padding: 0;
+        }
+    }
+
+    .navbar-center {
+        left: 46%;
+        margin-top: 5px;
+        position: absolute;
+        display: block;
+    }
+
+    div.wrapper {
+        width: 100%;
+        
+        min-height: 92vh;
+
+        display: inline-block;
+        background: $background;
+
+        .content {
+            width: 100%;
+            margin: auto;
+            @include box-sizing(border-box);
+
+            .slider-view {
+              width: 80%;
+              margin: auto;
+            }
+
+            .slider-img {
+                margin: 6vh auto;
+                width: 100%;
+                max-height: 80vh;
+                border: 5px solid $slider-border;
+            }
+
+            .carousel-control{
+                background-image: none;
+
+                .glyphicon {
+                    width: 50px;
+                    height: 90px;
+                    margin-top: -70px;
+
+                    &:before {
+                        content: url('../images/arrow-slider.svg') !important;
+                        width: 50px;
+                        height: 90px;
+                        display: inline-block;
+                        vertical-align: top
+                    }
+
+                    &.glyphicon-chevron-left {
+                        left: -70px;
+                    }
+
+                    &.glyphicon-chevron-right {
+                        right: -70px;
+
+                        &:before {
+                            @include rotate(180);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        padding: 5px 5px;
+        background: $slider-border;
+        color: white;
+
+        .p {
+            margin: 5px;
+        }
+    }
+}

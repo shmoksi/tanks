@@ -1,0 +1,28 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">{{currentImage.description}}</h3>
+    </div>
+
+
+  <div id="albumImage">
+      <img ng-src="{{currentImage.image}}" alt="{{currentImage.description}}">
+  </div>
+    <div id="thumbWrapper">
+        <ul id="thumbList">
+
+            <li ng-repeat="image in images" >
+                <img class="img_bottom" ng-click="setCurrentImage(image)" ng-src="{{image.image}}">
+            </li>
+            <li ng-repeat="image in customImages" >
+                <img class="img_bottom" ng-click="setCurrentImage(image)" ng-src="{{image.image}}" >
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Yes</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">No</button>
+        <button class="btn btn-success pull-left" type="button" ng-click="uploadPhoto()">Upload photo</button>
+    </div>
+
+</div>

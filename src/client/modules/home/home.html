@@ -1,0 +1,9 @@
+<div class="slider-view">
+    <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+        <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+            <img class="slider-img" ng-src="{{slide.image}}">
+        </uib-slide>
+    </uib-carousel>
+</div>
+
+<!-- ng-mouseenter="play()" -->

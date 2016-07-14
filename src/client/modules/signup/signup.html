@@ -1,0 +1,49 @@
+<div class="row signup-form">
+    <div class="col-md-3.5 col-md-offset-3.5">
+		<div class="regis-form">
+        	<h1 class='form-header'>Registration</h1>
+	        <form name="regForm">
+	            <div class="form-group">
+	                <label for="name">User name:</label>
+	                <input type="text" id='name' ng-pattern="/^[a-zA-Z0-9]*$/" class="form-control" name='username' ng-model="user.name" placeholder="User name" ng-minlength={{minname}} ng-maxlength={{maxname}} required/>
+	                <span class="form-error-message" ng-show="regForm.username.$error.pattern">Username should only contain letters and numbers</span>
+		            <span class="form-error-message" ng-show="regForm.username.$error.minlength">Username should be at least {{minname}} characters long</span>
+	        		<span class="form-error-message" 
+	                ng-show="regForm.username.$error.maxlength">
+	                Username cannot be longer than {{maxname}} characters</span>
+	                <span class="form-error-message" ng-show="regForm.username.$error.required && regForm.username.$dirty">Required</span>
+	            </div>
+	            <div class="form-group">
+	                <label for="email">E-mail address:</label>
+	                <input type="email" name="email" id='email' class="form-control" ng-model="user.email" placeholder="E-mail address" required/>
+	                <span class="form-error-message" ng-show="regForm.email.$error.required && regForm.email.$dirty">Required</span>
+	                <span class="form-error-message" ng-show="!regForm.email.$error.required && regForm.email.$error.email && regForm.email.$dirty">Invalid e-mail</span>
+	            </div>
+				<div class='form-group'>
+        			<label for='age'>Age:</label>
+					 <input class='form-control' id='age' name='age' ng-model='user.age' type='number' max={{maxage}} min={{minage}} placeholder="Age" required/>
+					 <span class="form-error-message" ng-show='regForm.age.$error.required && regForm.age.$dirty'>Required</span>
+					 <span class="form-error-message" ng-show='regForm.age.$error.min'>You should be at least {{minage}} years old</span>
+					 <span class="form-error-message" ng-show='regForm.age.$error.max'>You cannot be older than {{maxage}} years old</span>
+    			</div>
+				<div class="form-group">
+					<label for="password">Password:</label>
+ 					<input class="form-control" id='password' type="password" name="password" required ng-model="user.password" placeholder="Password"  ng-minlength={{minpassword}} ng-maxlength={{maxpassword}} />
+ 					<span class="form-error-message" data-ng-show="regForm.password.$error.required && regForm.password.$dirty">Required</span>
+ 					<span class="form-error-message" class="error" ng-show="regForm.password.$error.minlength">Password should be at least {{minpassword}} characters long</span>
+	        		<span class="form-error-message" class="error" ng-show="regForm.password.$error.maxlength">Password cannot be longer than {{maxpassword}} characters</span>
+ 				</div>
+				<div class="form-group" >
+					<label for="passwordConfirm">Confirm Password:</label>
+					 <input class="form-control" type="password" id='passwordConfirm' name="passwordConfirm" ng-model="user.passwordConfirm" placeholder="Confirm password" required />
+					 <span class="form-error-message" ng-show="regForm.passwordConfirm.$error.require 
+					  && regForm.passwordConfirm.$dirty">Required</span>
+					 
+ 				</div>
+	        </form>
+		        <div class="form-group">
+		            <button type="submit" class="btn btn-danger center-block" ng-click='register(user)' ng-disabled="regForm.$invalid" >Submit</button>
+				</div>
+			</div>
+    </div>
+</div>
