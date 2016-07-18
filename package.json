@@ -4,7 +4,6 @@
   "description": "web-based game for 2 players",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
     "start": "node src/server/bin/www"
   },
