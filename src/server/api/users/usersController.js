@@ -78,6 +78,7 @@ const createUser = function (newUser, callback) {
             if (err) {
                 return callback(err);
             }
+            console.log(user);
             callback(null, user);
         });
     });
