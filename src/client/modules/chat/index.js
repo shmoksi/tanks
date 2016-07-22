@@ -1,6 +1,6 @@
-var angular = require('angular');
-var ngRoute = require('angular-route');
-var scroll_glue = require('angularjs-scroll-glue');
+import angular from 'angular';
+import ngRoute from 'angular-route';
+import scroll_glue from 'angularjs-scroll-glue';
 
 module.exports = angular.module('tanks.chat', [ ngRoute, 'luegg.directives'])
 
@@ -22,9 +22,7 @@ function ChatController($scope,socket)
 
      if(socket)
      {
-          socket.on('output', function(data){
-              getMessages(data);
-          });
+          socket.on('output', getMessages);
 
           $scope.sentEventListener=function(event){
                var inputMessage = $scope.inputMessage,
@@ -50,7 +48,7 @@ function ChatController($scope,socket)
                for(var x=data.length-1;x>=0; --x){
                     $scope.$apply(function () {
                          $scope.messages.push({
-                              "chater_name": data[x].name, 
+                              "chater_name": data[x].name,
                               "chater_message": data[x].message,
                               "chater_time": data[x].time
                          });

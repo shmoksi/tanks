@@ -1,55 +1,49 @@
-var angular = require('angular');
-var ngRoute = require('angular-route');
+import angular from 'angular';
+import ngRoute from 'angular-route';
 
 module.exports = angular.module('tanks.login', [
     ngRoute
-]).controller('LoginCtrl', ['$scope', '$http', '$uibModalInstance', 'items', '$window',
-    function ($scope, $http, $uibModalInstance, items, $window) {
-        $scope.items = items;
-        $scope.selected = {
-            item: $scope.items[0]
-        };
+])
 
-        $scope.login = function(user) {
+.service('sendLog',['$http', '$window',
+    function($http, $window){
+
+        this.log = (userInfo, $scope, $uibModalInstance, item) => {
+            
+            return $http.post('/api/users/login', userInfo)
+                    .then((response) => {
+                        $scope.status = true;
+                        $uibModalInstance.close(item);
+                        $window.location.reload();
+                        window.localStorage.user = response.data.user;
+                        window.localStorage.username = response.data.username;
+                    },
+                    (response) => {
+                        window.localStorage.user = null;
+                        window.localStorage.username = null;
+                        alert('failed to login');
+                    });
+        };
+}])
+
+.controller('LoginCtrl', ['$scope', 'sendLog', '$uibModalInstance', 'item', function($scope, sendLog, $uibModalInstance, item) {
+
+        $scope.status = false;
+
+        $scope.minLengthName = 5;
+        $scope.maxLengthName = 15;
+
+        $scope.minLengthPass = 6;
+        $scope.maxLengthPass = 12;
+
+        $scope.login = (user) => {
 
             let userInfo = {
                 userName: user.name,
                 userPassword: user.password
             };
 
-            $http.post('api/users/login', userInfo)
-                .then(function(response) {
-                        $uibModalInstance.close($scope.selected.item);
-                        $window.location.reload();
-                    },
-                    function(response) {
-                        console.log('failed to login');
-                    }
-                );
+            sendLog.log(userInfo, $scope, $uibModalInstance, item);
         }
     }
 ]);
-
-// function LoginCtrl($scope, $http, $uibModalInstance, items) {
-//     $scope.items = items;
-//     $scope.selected = {
-//         item: $scope.items[0]
-//     };
-
-//     $scope.login = function(user) {
-
-//         let userInfo = {
-//             userName: user.name,
-//             userPassword: user.password
-//         };
-
-//         $http.post('api/users/login', userInfo)
-//             .then(function(response) {
-//                     $uibModalInstance.close($scope.selected.item);
-//                 },
-//                 function(response) {
-//                     console.log('failed');
-//                 }
-//             );
-//     }
-// }

@@ -1,2 +1,1 @@
-require('./modules');
-require('./models/tankShot');
+import './modules';

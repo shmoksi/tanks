@@ -3,13 +3,14 @@ var bcrypt = require('bcryptjs');
 var express = require('express');
 var nodemailer = require('nodemailer');
 var fs = require('fs');
-var strUserImg = {"image": "cat.jpg", uploadedImg: false};
+var strUserImg = {"image": "1dog.jpg", uploadedImg: false};
 var path = require('path');
 var multer = require('multer');
 var fsHelper = require('../libs/fsHelper');
 
 const Schema = mongoose.Schema;
 const userScopeName = 'userAvatar';
+const userInfoDir = './src/server/static/usersInfo/';
 const publicScopeName = 'public';
 const userUploadsScopeName = 'userUploads';
 const publicImgURL = "/api/users/profile/getImage/" + publicScopeName + '/';
@@ -78,7 +79,7 @@ const createUser = function (newUser, callback) {
             if (err) {
                 return callback(err);
             }
-            console.log(user);
+
             callback(null, user);
         });
     });
@@ -275,6 +276,9 @@ const getUserImage = function (req, res) {
         cb(err, foundUser);
     });
     function cb(err, foundUser) {
+        if(foundUser === null) {
+            return res.status(403).send();
+        }
         userImage = foundUser.userImg;
         if (userImage.uploadedImg) {
             userDir = __dirname + '/../../static/usersInfo/' + userId + '/' + userImage.image;
@@ -350,7 +354,9 @@ const uploadImg = function (request, res) {
     var d = new Date();
     var originName;
     var fileNameNew = 'userAvatar' + d.getTime();
-    var dir = './src/server/static/usersInfo/' + request.session.user;
+    var dir = userInfoDir + request.session.user;
+    fsHelper.checkDir(userInfoDir);
+    fsHelper.checkDir(dir);
     fsHelper.rmDir(dir);
     var storage = multer.diskStorage({ //multers disk storage settings
         destination: function (req, file, cb) {
@@ -388,9 +394,12 @@ const getPublicImg = function (req, res) {
 
             var userId = req.session.user;
             const userDir = __dirname + '/../../static/usersInfo/' + userId + '/';
-
+            //todo async?
+            var check = function () {
+                fsHelper.checkDir(userDir);
+            }
+            check();
             fs.readdir(userDir, function (e, files) {
-                console.log(e, files.length > 0);
                 if (!e && files.length > 0)
                     images.push({image: userImgURL + files[0] + fsHelper.getSalt(), uploadedImg: true});
                 res.send(200, images);

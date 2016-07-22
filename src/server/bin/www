@@ -9,17 +9,10 @@ var conf = require('../../../config.json')[process.env.NODE_ENV || 'development'
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
+
 var mongoose = require('mongoose');
 
 var connection_string = process.env.MONGODB_URI || conf.DB_URL;
-// var connection_string = conf.DB_URL;
-// if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
-//   connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
-//   process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
-//   process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
-//   process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
-//   process.env.OPENSHIFT_APP_NAME;
-// }
 mongoose.connect(connection_string, function(err, res) {
     if (err) {
       console.log ('ERROR connecting to: ' + connection_string + '. ' + err);
@@ -28,13 +21,12 @@ mongoose.connect(connection_string, function(err, res) {
     }
 });
 
-
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || conf.PORT),
-    ip = process.env.OPENSHIFT_NODEJS_IP || conf.IP;
+ var port = normalizePort(process.env.PORT || conf.PORT),
+     ip = process.env.IP || conf.IP;
 
 app.set('port', port);
 app.set('ip', ip);

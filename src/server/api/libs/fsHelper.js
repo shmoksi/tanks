@@ -13,12 +13,19 @@ const rmDir = function (dirPath) {
         }
 };
 
+const checkDir = function (dir) {
+    fs.access(dir, function (err) {
+        if (err) {
+            fs.mkdir(dir);
+        }
+    });
 
-
-
-const getSalt = function  (){
-    return "?salt=" + new Date().getTime();
 };
 
+
+const getSalt = function () {
+    return "?salt=" + new Date().getTime();
+};
+module.exports.checkDir = checkDir;
 module.exports.rmDir = rmDir;
 module.exports.getSalt = getSalt;

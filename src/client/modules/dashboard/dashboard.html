@@ -15,7 +15,7 @@
                     <span class="{{user.isOnline}}" ng-show="user.isOnline === false">Offline</span>
                 </td>
                 <td>{{user.userName}}</td>
-                <td><button ng-show="user.isOnline === true" type="button" class="btn btn-primary" ng-click="sendInvite(user._id)">Invite</button>
+                <td><button ng-show="user.isOnline === true" type="button" class="btn btn-primary" ng-click="sendInvite(user._id)" id="invite">Invite</button>
                 <button ng-show="user.isOnline === false" type="button" class="btn btn-primary disabled" disabled>Invite</button></td>
             </tr>
         </tbody>

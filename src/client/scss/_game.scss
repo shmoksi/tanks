@@ -7,11 +7,18 @@
     font-weight: normal;
     font-style: normal;
 }
-
 @mixin lightning() {
     cursor: pointer;
     transition: box-shadow 0.3s ease-out;
     box-shadow: inset 0 0 30px rgba(255, 80, 80, 1);
+}
+@mixin no-select() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .outer {
@@ -20,16 +27,16 @@
     .left-col {
         display: inline-block;
     }
-     .right-col {
-         display: inline-block;
-         float: right;
-         background-color: #BA2924;
-         width: 530px;
-         height: 610px;
+    .right-col {
+        display: inline-block;
+        float: right;
+        background-color: $background;
+        width: 530px;
+        height: 610px;
      }
      .chat{
-         height: 610px;
-         width: 530px;
+        height: 610px;
+        width: 530px;
      }
 }
 
@@ -44,7 +51,6 @@
         width: 100%;
         padding-left: 20px;
         padding-right: 20px;
-        // font-weight: bold;
         color: black;
 
         .player1 {
@@ -65,10 +71,11 @@
     height: 200px;
     position: relative;
     top: 410px; 
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    .topleft, .downleft, .topright, .downright {
+    @include no-select();
+    .topleft, 
+    .downleft, 
+    .topright, 
+    .downright {
         position: absolute;
         background-repeat: no-repeat;
         background-size: cover;
@@ -76,7 +83,7 @@
         height: 38px;
         font-size: 35px;
         font-family: sans-serif;
-        color: #09090F;
+        color: $panel-arrows;
         line-height: 38px;
         text-align: center;
 
@@ -109,7 +116,9 @@
         transform: rotate(270deg);
     }
 
-    .power-block, .fire-block, .angle-block {
+    .power-block, 
+    .fire-block, 
+    .angle-block {
         top: 74px;
         position: absolute;
         width: 122px;
@@ -135,8 +144,19 @@
         left: 465px;
         background-color: rgba(10, 15, 33, 0.7);
     }
+    .chat-btn {
+        position: relative;
+        width: 120px;
+        height: 30px;
+        left: 680px;
+        top: 170px;
+        background-color: rgb(256, 256, 256);
+        border: 2px dotted aqua;
+    }
 
-    .power-text, .fire-text, .angle-text {
+    .power-text, 
+    .fire-text, 
+    .angle-text {
         top: 163px;
         position: absolute;
         width: 125px;
@@ -153,5 +173,15 @@
     }
     .angle-text {
         left: 465px;
+    }
+    
+    #chat-window {
+        position: relative;
+        width: 400px;
+        height: 170px;
+        top: -30px;
+        left: 0;
+        opacity: 0;
+        display: none;
     }
 }

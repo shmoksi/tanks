@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <div>
                     <label for="inputEmail">User name:</label>
-                        <input name="username" type="text" class="form-control" id="inputEmail" placeholder="Username" ng-model="user.name" ng-required="true" ng-minlength=5 ng-maxlength=15 ng-pattern="/^[a-zA-Z0-9]*$/">
+                        <input name="username" type="text" class="form-control" id="inputEmail" placeholder="Username" ng-model="user.name" ng-required="true" ng-minlength="minLengthName" ng-maxlength="maxLengthName" ng-pattern="/^[a-zA-Z0-9]*$/">
                         <span class="form-error-message" ng-show="login_form.username.$error.pattern">Username should only contain letters and numbers</span>
                         </br>
                         <span class="form-error-message" ng-show="login_form.username.$error.minlength">Username should be at least 5 characters long</span>
@@ -16,7 +16,7 @@
                 
                      <div>
                     <label for="inputPassword" class="">Password:</label>
-                        <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="user.password" ng-required="true" ng-minLength="6" ng-maxLength="12">
+                        <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="user.password" ng-required="true" ng-minLength="minLengthPass" ng-maxLength="maxLengthPass">
                         <span class="form-error-message" data-ng-show="login_form.password.$error.required && login_form.password.$dirty">Required</span>
                         <span class="form-error-message" class="error" ng-show="login_form.password.$error.minlength">Password should be at least 6 characters long</span>
                         <span class="form-error-message" class="error" ng-show="login_form.password.$error.maxlength">Password cannot be longer than 12 characters</span>

@@ -1,5 +1,5 @@
-var angular = require('angular');
-var ngRoute = require('angular-route');
+import angular from 'angular';
+import ngRoute from 'angular-route';
 
 module.exports = angular.module('tanks.home', [
     ngRoute
