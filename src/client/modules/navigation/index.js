@@ -48,7 +48,7 @@ module.exports = angular.module('tanks.navigation', [
                     window.localStorage.username = null;
                 }, () => {
                     alert('server error');           //-------------> will be OK?
-                }); 
+                });
             };
 
             $scope.checkSessionFunc();

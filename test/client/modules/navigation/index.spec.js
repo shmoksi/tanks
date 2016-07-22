@@ -24,7 +24,7 @@ describe('NavigationCtrl » Testing navpanel', () => {
 
     it("check initial variables", () => {
         let ctrl = createController();
-        expect(scope.items).toBeDefined();
+        expect(scope.item).toBeDefined();
         expect(scope.logged).toBe(false);
     });
 
