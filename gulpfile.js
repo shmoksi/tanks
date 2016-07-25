@@ -83,6 +83,7 @@ gulp.task('build', ['js', 'fonts', 'sass', 'images', 'template'], () => {
 
 gulp.task('default', ['build']);
 
+
 gulp.task('watch', () => {
     gulp.watch( pathClient + 'modules/**/*.js', ['js']);
     gulp.watch( pathClient + 'modules/**/*.html', ['template'] );
