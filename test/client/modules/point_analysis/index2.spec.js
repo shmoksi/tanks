@@ -1,6 +1,10 @@
+// import paper from 'paper';
+//
 // describe ("Point analysis", function () {
 // 		let shotBullet,
+// 			groundCoord,
 // 			bulletPath,
+// 			groundPath,
 //             groundPointPath,
 //         	intersect,
 //         	intersectionPoint,

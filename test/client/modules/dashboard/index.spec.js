@@ -1,7 +1,7 @@
 // describe('Test Dashboard', function() {
 //     var httpBackend, injector, scope, ctrl, $controller;
-    
-
+//
+//
 //     var response = [
 //         {
 //             "_id": "57a",
@@ -32,9 +32,9 @@
 //             "__v": 0
 //         }
 //     ];
-
+//
 //     beforeEach(angular.mock.module("tanks.dashboard"));
-
+//
 //     // beforeEach(function() {
 //     //     inject(function($injector) {
 //     //         injector = $injector;
@@ -42,54 +42,54 @@
 //     //         $httpBackend.when('GET', 'api/users').respond(response);
 //     //     })
 //     // });
-
+//
 //     beforeEach(inject(function(_$controller_, $httpBackend) {
 //         httpBackend = $httpBackend;
 //         $controller = _$controller_;
 //         scope = {};
 //     }));
-
+//
 //     beforeEach(inject(() => {
-
+//
 //         ctrl = $controller('DashboardCtrl', {$scope: scope, $http: httpBackend});
-
+//
 //     }));
-
+//
 //     afterEach(function() {
 //         httpBackend.verifyNoOutstandingExpectation();
 //         httpBackend.verifyNoOutstandingRequest();
 //     });
-
+//
 //     xit('calls api/users', function() {
 //         httpBackend.expectGET('api/users');
 //         // injector.get('DashboardCtrl');
 //         expect(scope.var1).toEqual(5);
 //         httpBackend.flush();
 //     });
-
-
+//
+//
 // });
 
 
 
-// // describe("Test profile page", function () {
-// //     // var dashboardService, httpBackend;
+// describe("Test profile page", function () {
+//     // var dashboardService, httpBackend;
 
-// //     beforeEach(angular.mock.module("tanks.dashboard"));
+//     beforeEach(angular.mock.module("tanks.dashboard"));
 
-// //     beforeEach(inject(function (_$httpBackend_) {
-// //         // dashboardService = _dashboardService_;
-// //         httpBackend = _$httpBackend_;
-// //     }));
+//     beforeEach(inject(function (_$httpBackend_) {
+//         // dashboardService = _dashboardService_;
+//         httpBackend = _$httpBackend_;
+//     }));
 
-// //     fit("check for true or false", function ($routeProvider) {
-// //         console.log('a');
-// //         console.log($routeProvider());
-// //         console.log('b');
-// //         const profileURL = 'api/users/profile';
+//     fit("check for true or false", function ($routeProvider) {
+//         console.log('a');
+//         console.log($routeProvider());
+//         console.log('b');
+//         const profileURL = 'api/users/profile';
 
-// //         httpBackend.whenRoute('PUT', profileURL + '/updateUser/');
-// //         // expect(profileService.update).toBeDefined();
-// //     });
+//         httpBackend.whenRoute('PUT', profileURL + '/updateUser/');
+//         // expect(profileService.update).toBeDefined();
+//     });
 
-// // });
+// });
